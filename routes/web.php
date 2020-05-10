@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view('/checkout', 'checkout-page');
+Route::post('/checkout', 'PaypalController@createPayment')->name('create-payment');
+Route::get('/confirm', 'PaypalController@confirmPayment')->name('confirm-payment');
